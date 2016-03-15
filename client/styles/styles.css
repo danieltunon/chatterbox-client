@@ -21,14 +21,23 @@ body {
     overflow-y: scroll;
 }
 
-.poop {
-    background-color: rgba(102, 51, 0, .75);
-    word-wrap: break-word;
-    border-radius: 10px;
-}
+
+/*.poop > span {
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+}*/
 
 .poop > p {
-    padding: 15px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+
+#submit-btn {
+    font-size: 30px;
+    height: 40px;
+    width: 45px;
 }
 
 #main h1 {
@@ -81,8 +90,15 @@ form input[type=text] {
     background-color: #eee;
 }
 
+.poop {
+    background-color: rgba(102, 51, 0, .75);
+    word-wrap: break-word;
+    border-radius: 10px;
+}
+
 .chat .username {
     font-weight: 800;
+    cursor: pointer;
 }
 
 .chat:hover {
