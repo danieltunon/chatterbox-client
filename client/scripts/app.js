@@ -1,9 +1,12 @@
+/*global $*/
 // YOUR CODE HERE:
 var app = {
   server: 'https://api.parse.com/1/classes/messages',
+  rooms: {},
+  friends: {},
   init: function() {
-    this.fetch();
     $(document).ready(function() {
+      app.fetch();
       $('#send').on('submit', function(e) {
         // e.preventDefault();
         app.handleSubmit();
@@ -29,11 +32,14 @@ var app = {
           app.clearMessages();
           _.each(data.results, function(chat) {
             app.addMessage(chat);
-            app.addRoom(chat.roomname);
+            if ( chat.roomname && !app.rooms[chat.roomname] ) {
+              app.addRoom(chat.roomname);
+              app.rooms[chat.roomname] = true;
+            }
           });
           $('.username').on('click', function() {
             app.addFriend();
-          }); 
+          });
         });
       }
     });
@@ -50,40 +56,40 @@ var app = {
     $('#chats').append($chat);
   },
   addRoom: function(roomname) {
-    var $room = $('<option>').attr('value', roomname);
+    var $room = $('<option>').attr('value', _.escape(roomname));
     $room.text(roomname);
     $('#roomSelect').append($room);
   },
   addFriend: function() {
-    // var $friend = 
+    // var $friend =
     console.log('poop');
   },
   handleSubmit: function() {
     var message = $('#message').val();
     var dataObj = {};
     dataObj.text = message;
-    app.send(JSON.stringify(dataObj));
-    // return false;
+    app.send(dataObj);
+    return false;
   }
-};   
+};
 // var load = function () {
 //   app.fetch().done(function(data) {
 //     $('#chats').html('');
 //     _.each(data.results, function(chat) {
 //       app.addMessage(chat);
-//     }); 
+//     });
 //   });
 // };
 
-// var submitData = function(data) {
-//   $.ajax({
-//     url: 'https://api.parse.com/1/classes/messages',
-//     method: 'POST',
-//     contentType: 'application/json',
-//     dataType: 'json',
-//     data: data
-//   });
-// };
+var submitData = function(data) {
+  $.ajax({
+    url: 'https://api.parse.com/1/classes/messages',
+    method: 'POST',
+    contentType: 'application/json',
+    dataType: 'json',
+    data: data
+  });
+};
 
 
 app.init();
