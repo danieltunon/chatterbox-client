@@ -15,6 +15,22 @@ body {
     border-width: 0 1px 1px 1px;
 }
 
+#chats {
+    padding: 20px 60px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.poop {
+    background-color: rgba(102, 51, 0, .75);
+    word-wrap: break-word;
+    border-radius: 10px;
+}
+
+.poop > p {
+    padding: 15px;
+}
+
 #main h1 {
     margin-top: 0;
     font-size: 35px;
