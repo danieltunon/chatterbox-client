@@ -10,34 +10,26 @@ body {
     margin: auto;
     text-align: left;
     background: white;
-    padding: 50px 60px;
+    padding: 20px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
 }
-
-#chats {
-    padding: 20px 60px;
-    height: 500px;
-    overflow-y: scroll;
-}
-
-
-/*.poop > span {
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
-}*/
 
 .poop > p {
     padding: 5px;
     margin-left: 10px;
 }
 
-
+#message {
+    height: 16px;
+}
 #submit-btn {
-    font-size: 30px;
-    height: 40px;
-    width: 45px;
+    font-size: 20px;
+    height: 30px;
+    width: 40px;
+    padding-right: 10px;
+    position: absolute;
+    bottom: 0px;
 }
 
 #main h1 {
@@ -45,6 +37,7 @@ body {
     font-size: 35px;
     margin-bottom: 5px;
     padding: 5px;
+    display: inline-block;
 }
 
 #main h1 span {
@@ -71,10 +64,12 @@ body {
     line-height: 13px;
 }
 
+#roomSelect {
+    width: 100px;
+}
+
 form {
-    padding: 20px;
-    padding-left: 0;
-    margin-bottom: 20px;
+    position: relative;
 }
 
 form input[type=text] {
